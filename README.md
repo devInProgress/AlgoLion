@@ -1,2 +1,2 @@
 # DsAlgoNinja
-60 Fundamental Problems involving Data Structures and Algorithms have been solved using the best programming practices and extensive use of the C++ STL (Standard Template Library)
+This repository captures the implementation of all the basic data structures and algorithms in our Dear C++, the fundamentals every Programmer should know.
