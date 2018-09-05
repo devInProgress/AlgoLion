@@ -7,3 +7,34 @@ struct Node {
     Node *prev;
 };
 
+Node *head = NULL;
+
+
+
+void printDLL() {
+    Node *headDuplicate = head; 
+    while(headDuplicate) {
+        cout << headDuplicate -> data << " ";
+        headDuplicate = headDuplicate -> next;
+    }
+    cout << endl;
+}
+
+Node *createNewNode(int data) {
+    Node *newNode = new Node();
+    newNode -> data = data;
+    newNode -> next = NULL;
+    newNode -> prev = NULL;
+}
+
+void InsertAtBeginningOfDLL(int data) {
+    Node *newNode = createNewNode(data);
+    if(!head) {
+        head = newNode;
+        return;
+    }
+    newNode -> next = head;
+    head -> prev = newNode;
+    head = newNode;
+}
+
