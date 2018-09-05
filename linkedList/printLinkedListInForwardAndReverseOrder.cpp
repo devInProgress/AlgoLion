@@ -10,7 +10,8 @@ Node *head = NULL;
 void insertAtNthPosition(int data, int n);
 void printList();
 Node *createNewNode();
-void printList(Node *head);
+void printListForwardRecursively(Node *head);
+void printListBackwardRecursively(Node *head);
 
 Node *createNewNode(int data) {
     Node *newNode = new Node();
@@ -43,13 +44,21 @@ void printList() {
     cout << endl;
 }
 
-void printList(Node *head) {
+void printListForwardRecursively(Node *head) {
     if(!head) {
         cout << endl;
         return;
     }
     cout << head -> data << " ";
-    printList(head -> next);
+    printListForwardRecursively(head -> next);
+}
+
+void printListBackwardRecursively(Node *head) {
+    if(!head) {
+        return;
+    }
+    printListBackwardRecursively(head -> next);
+    cout << head -> data << " ";
 }
 
 int main() {
@@ -60,7 +69,9 @@ int main() {
         insertAtNthPosition(data, position);
         printList();
     }
-    cout << "Final State of Linked List" << endl;
-    printList(head);
+    cout << "Final State of Linked List in Forward Manner" << endl;
+    printListForwardRecursively(head);
+    cout << "Final State of Linked List in Forward Manner" << endl;
+    printListBackwardRecursively(head);
     return 0;
 }
