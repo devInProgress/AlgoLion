@@ -9,12 +9,26 @@ struct Node {
 
 Node *head = NULL;
 
-void printDLL() {
+void printDLLBackward() {
+    Node *headDuplicate = head;
+    while(headDuplicate -> next) {
+        headDuplicate = headDuplicate -> next;
+    }
+    while(headDuplicate) {
+        cout << headDuplicate -> data << " ";
+        headDuplicate = headDuplicate -> prev;
+    }
+    cout << endl;
+    delete headDuplicate;
+}
+
+void printDLLForward() {
     Node *headDuplicate = head; 
     while(headDuplicate) {
         cout << headDuplicate -> data << " ";
         headDuplicate = headDuplicate -> next;
     }
+    delete headDuplicate;
     cout << endl;
 }
 
@@ -23,6 +37,7 @@ Node *createNewNode(int data) {
     newNode -> data = data;
     newNode -> next = NULL;
     newNode -> prev = NULL;
+    return newNode;
 }
 
 void InsertAtBeginningOfDLL(int data) {
@@ -42,7 +57,8 @@ int main() {
     while(n--) {
         cin >> data;
         InsertAtBeginningOfDLL(data);
-        printDLL();
+        printDLLForward();
+        printDLLBackward();
     }
     return 0;
 }
