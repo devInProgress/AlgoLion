@@ -9,8 +9,6 @@ struct Node {
 
 Node *head = NULL;
 
-
-
 void printDLL() {
     Node *headDuplicate = head; 
     while(headDuplicate) {
@@ -36,5 +34,16 @@ void InsertAtBeginningOfDLL(int data) {
     newNode -> next = head;
     head -> prev = newNode;
     head = newNode;
+}
+
+int main() {
+    int n, data;
+    cin >> n;
+    while(n--) {
+        cin >> data;
+        InsertAtBeginningOfDLL(data);
+        printDLL();
+    }
+    return 0;
 }
 
