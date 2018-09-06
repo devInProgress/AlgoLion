@@ -2,7 +2,7 @@
 #define MAX_SIZE 101
 using namespace std;
 
-int stack[MAX_SIZE];
+int Stack[MAX_SIZE] = {0};
 int top = -1;
 
 void push(int data) {
@@ -10,7 +10,7 @@ void push(int data) {
         cout << "Stack Overflows! cannot insert element" << endl;
         return;
     }
-    stack[++top] = data;
+    Stack[++top] = data;
 }
 
 int pop() {
@@ -18,11 +18,11 @@ int pop() {
         cout << "Stack Underflows! cannot pop element" << endl;
         return -1;
     }
-    return stack[top--];
+    return Stack[top--];
 }
 
 int peek() {
-    return stack[top];
+    return Stack[top];
 }
 
 void printCurrentStackElements() {
@@ -30,20 +30,20 @@ void printCurrentStackElements() {
         return;
     }
     for(int i = 0; i <= top; i++) {
-        cout << stack[i] << " ";
+        cout << Stack[i] << " ";
     }
     cout << endl;
 }
 
 int main() {
     int n, option, data;
-    cout << "How many stack operations do you want to perform?" << endl;
+    cout << "How many Stack operations do you want to perform?" << endl;
     cin >> n;
     for(int i = 0; i < n; i++) {
         cout << "Indicate 1 for push and 2 for pop" << endl;
         cin >> option;
         if(option == 1) {
-            cout << "Enter Element to be pushed onto the stack" << endl;
+            cout << "Enter Element to be pushed onto the Stack" << endl;
             cin >> data;
             push(data);
             cout << "Current State of Stack" << endl;
